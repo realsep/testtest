@@ -7,9 +7,10 @@ window.onload = function(e) {
 function initializeApp(data) {
     document.getElementById('send').addEventListener('click', function() {
 
-        // var msg = document.getElementById('uname').value,
-        // var msg1 = document.getElementById('fdate').value,
-        // var msg2 = document.getElementById('ldate').value
+        var msg = document.getElementById('txtCode').value,
+        var msg1 = document.getElementById('txtDateF').value,
+        var msg2 = document.getElementById('txtDateL').value
+                
         liff.sendMessages([{
             type: 'text',
             text: "0000"
@@ -21,17 +22,6 @@ function initializeApp(data) {
 
 
 
-        //         liff.sendMessages([{
 
-        //             Type: 'text',
-        //             text: "0000"
-
-
-
-        //         }]).then(function() {
-        //             window.alert("Message sent");
-        //         }).catch(function(error) {
-        //             window.alert("Error sending message:" + error);
-        //         });
     });
 }
