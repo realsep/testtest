@@ -20,6 +20,6 @@ app.post('/liff', function(req, res) {
     res.send("0000");
 });
 
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
     console.log('Node start on port : ' + port);
 });
