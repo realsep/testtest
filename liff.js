@@ -8,15 +8,13 @@ function initializeApp(data) {
     
     document.getElementById('send').addEventListener('click', function() {
 
-        var msg = document.getElementById('txtCode').value;
-        var msg1 = document.getElementById('txtDateF').value;
-        var msg2 = document.getElementById('txtDateL').value;
+//         var msg = document.getElementById('txtCode').value;
+//         var msg1 = document.getElementById('txtDateF').value;
+//         var msg2 = document.getElementById('txtDateL').value;
                 
         liff.sendMessages([{
             type: 'text',
-            text: 'msg',
-            text: 'msg1',
-            text: 'msg2'
+            text: "00000"
         }]).then(function() {
             window.alert("Message Sent");
         }).catch(function(error) {
