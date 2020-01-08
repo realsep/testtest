@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ข้อมูลยอดขาย</title>
+    <style>
+        body {
+            background: #000;
+            color: aliceblue;
+            font-family: Helvetica Neue, Helvetica, Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <form method="post" action="/Search">
+        <div class="container">
+            <label for="txtCode"><b>Name</b></label>
+            <input type="text" placeholder="Enter Branch" name="txtCode" required>
+
+            <label for="txtDateF"><b>วันที่เริ่มต้น</b></label>
+            <input type="date" name="txtDateF" required>
+
+            <label for="txtDateL"><b>วันที่สิ้นสุด</b></label>
+            <input type="date" name="txtDateL" required>
+
+            <!-- <button id="send" name="send" type="button"></button> -->
+            <button onclick="window.location.href = 'https://stormy-spire-09445.herokuapp.com/liff';">Click Here</button>
+
+    </form>
+</body>
