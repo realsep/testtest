@@ -14,7 +14,9 @@ function initializeApp(data) {
                 
         liff.sendMessages([{
             type: 'text',
-            text: "0000"
+            text: 'msg',
+            text: 'msg1',
+            text: 'msg2'
         }]).then(function() {
             window.alert("Message Sent");
         }).catch(function(error) {
