@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var Assessment = require('../app/models/assessment');
 
 const port = 5000;
 
