@@ -17,13 +17,13 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.get('/', function(req, res) {
-    // res.sendFile('/search.html', { root: __dirname });
+app.get('/', function(req, res, next) {
+    // res.sendFile('/search.html', { ro,ot: __dirname });
     // res.redirect('https://ff55bb19.ngrok.io');
 
 //     res.sendFile('/searchliff.html', { root: __dirname });
 });
-app.post('/liff', function(req, res) {
+app.post('/liff', function(req, res, next) {
     res.send("00000");
 });
 
