@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.options('*', cors())
 app.get('/', function(req, res) {
     // res.sendFile('/search.html', { root: __dirname });
     // res.redirect('https://ff55bb19.ngrok.io');
