@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 });
 app.post('/liff', function(req, res) {
 
-    res.send("0000");
+    res.send("00000");
 });
 
 app.listen(process.env.PORT || port, function() {
