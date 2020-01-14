@@ -18,20 +18,7 @@ app.get('/', function(req, res) {
 app.post('/liff', function(req, res) {
 
     res.send("0000");
-    var options = {
-        host: url,
-        port: 3001,
-        path: 'https://gentle-crag-28693.herokuapp.com',
-        method: 'POST'
-    };
-    http.request(options, function(res){
-        console.log('STATUS: ' + res.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(res.headers));
-        res.setEncoding('utf8');
-        res.on('data', function (chunk){
-            console.log('BODY: ' + chunk);
-        });
-    }).end();
+   
 });
 
 app.listen(process.env.PORT || port, function() {
