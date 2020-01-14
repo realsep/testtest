@@ -19,7 +19,7 @@ app.post('/liff', function(req, res) {
 
     // res.send("0000");
     const request = require('request');
-    request('https://stormy-spire-09445.herokuapp.com', function (error, response, body) {
+    request('https://stormy-spire-09445.herokuapp.com/test', function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body)
         }
