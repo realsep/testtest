@@ -17,15 +17,8 @@ app.get('/', function(req, res) {
 });
 app.post('/liff', function(req, res) {
 
-    // res.send("0000");
-    var request = require('request');
-    request.post('https://stormy-spire-09445.herokuapp.com', { form: { key: 'value' } }),
-        function(error, res, body) {
-            if (!error && res.statusCode == 200) {
-                console.log(body)
-            }
+    res.send("0000");
 
-        }
 
 });
 
