@@ -17,7 +17,17 @@ app.get('/', function(req, res) {
 });
 app.post('/liff', function(req, res) {
 
-    res.send("0000");
+    // res.send("0000");
+    var request = require('request');
+    request.post(
+        'https://gentle-crag-28693.herokuapp.com/liff', 
+        { json: {key: 'value'} },
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body);
+            }
+        }
+    );
 });
 
 app.listen(process.env.PORT || port, function() {
