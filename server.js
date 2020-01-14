@@ -23,18 +23,8 @@ app.get('/', function(req, res, next) {
 //     res.sendFile('/searchliff.html', { root: __dirname });
 });
 app.post('/liff', function(req, res, next) {
-    var options = {
-        host: 'https://gentle-crag-28693.herokuapp.com/search',
-        port: 3001,
-        path: '/search',
-        method: 'POST'
-    };
-    
-        // res.send("0527");
-
-  
-    
-    
+  res.send("0527");
+ 
 });
 
 app.listen(process.env.PORT || port, function() {
