@@ -25,12 +25,6 @@ app.post('/liff', function(req, res) {
         }
 
     });
-    const rp = require('request-promise');
-    rp('https://stormy-spire-09445.herokuapp.com/test').then(body => {
-        console.log(body)
-    }).catch(err => {
-        console.log(err);
-    });
 });
 
 app.listen(process.env.PORT || port, function() {
