@@ -10,8 +10,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res) {
-    // res.sendFile('/search.html', { root: __dirname });
-    // res.redirect('https://ff55bb19.ngrok.io');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+    });
 
     res.sendFile('/searchliff.html', { root: __dirname });
 });
