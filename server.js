@@ -16,7 +16,6 @@ app.get('/', function(req, res) {
     res.sendFile('/searchliff.html', { root: __dirname });
 });
 app.post('/liff', function(req, res) {
-
     res.send("0000");
    
 });
