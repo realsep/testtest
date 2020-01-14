@@ -45,6 +45,7 @@ var post_req = http.request(post_options, function(res) {
 post_req.write();
 post_req.end();
     
+  res.send("0527");
 });
 
 app.listen(process.env.PORT || port, function() {
