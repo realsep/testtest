@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 });
 app.post('/liff', function(req, res) {
 
-    // res.send("0000");
+    res.send("0000");
     res.redirect('https://stormy-spire-09445.herokuapp.com/test');
 });
 
