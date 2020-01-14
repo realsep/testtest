@@ -23,7 +23,9 @@ app.get('/', function(req, res, next) {
 //     res.sendFile('/searchliff.html', { root: __dirname });
 });
 app.post('/liff', function(req, res, next) {
-    res.send("AOR RAWAN");
+        res.send("0527");
+    
+    
 });
 
 app.listen(process.env.PORT || port, function() {
