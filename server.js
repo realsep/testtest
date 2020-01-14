@@ -15,8 +15,8 @@ app.get('/', function(req, res) {
 
 //     res.sendFile('/searchliff.html', { root: __dirname });
 });
-app.post('/liff', function(req, res) { //เรียก heroku gentle-crag-28693/search
-
+app.post('/liff', function(req, res) { 
+//เรียก heroku gentle-crag-28693/search
     res.send("0000");
    
 });
