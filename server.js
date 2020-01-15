@@ -17,23 +17,26 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res, next) {
-    res.send("Online")
+    res.send("Online");
 });
 
 app.post('/liff', function(req, res, next) {
-    var options = {
-        method: 'POST',
-        uri: 'https://gentle-crag-28693.herokuapp.com/search',
-        json: true
-    };
+    
+//     var options = {
+//         method: 'POST',
+//         uri: 'https://gentle-crag-28693.herokuapp.com/search',
+//         json: true
+//     };
 
-    rp(options)
-        .then(function(parsedBody) {
-            res.send(parsedBody)
-        })
-        .catch(function(err) {
-            return next(err);
-        });
+//     rp(options)
+//         .then(function(parsedBody) {
+//             res.send(parsedBody)
+//         })
+//         .catch(function(err) {
+//             return next(err);
+//         });
+    
+    res.send("AAAA");
 });
 
 app.listen(process.env.PORT || port, function() {
