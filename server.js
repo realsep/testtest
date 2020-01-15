@@ -29,7 +29,7 @@ app.post('/liff', function(req, res, next) {
 
     var options = {
         method: 'POST',
-        url: 'https://gentle-crag-28693.herokuapp.com/search',
+        uri: 'https://gentle-crag-28693.herokuapp.com/search',
         body: {
             some: 'payload'
         },
