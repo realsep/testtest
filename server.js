@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var port = 5000;
 var rp = require('request-promise');
-var port = process.env.PORT || 5000;
 
 var app = new express();
 
@@ -17,36 +17,25 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res, next) {
-    // res.sendFile('/search.html', { root: __dirname });
-    // res.redirect('https://ff55bb19.ngrok.io');
-
-    //     res.sendFile('/searchliff.html', { root: __dirname });
+    res.send("Online")
 });
 
 app.post('/liff', function(req, res, next) {
-
     var options = {
         method: 'POST',
         uri: 'https://gentle-crag-28693.herokuapp.com/search',
-        body: {
-            some: 'payload'
-        },
         json: true
     };
+    
     rp(options)
-        .then(function(parsedBody) {
-            res.send(parsedBody)
+        .then(function(res) {
+            res.send(res)
         })
         .catch(function(err) {
-            // return next(err);
-            res.send("CONNECT FAILED")
+            return next(err);
         });
-
-    // app.listen(port, function () {
-    //     console.log("App is running on port" + port);
-    // });
 });
 
 app.listen(process.env.PORT || port, function() {
-    console.log('Node start on port : ' + port);
+        console.log('Node start on port : ' + port);
 });
