@@ -27,11 +27,11 @@ app.post('/liff', function(req, res, next) {
     const https = require('https')
     const options = {
         url: 'https://gentle-crag-28693.herokuapp.com/search',
-        port: 3001,
+//         port: 3001,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Content-Length': DataCue.length
+//             'Content-Length': DataCue.length
         }
     }
     const req = https.request(options, res => {
