@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// var https = require('https')
-var rp = require('request-promise');
+var https = require('https')
+
 
 const port = 5000;
 
@@ -26,24 +26,44 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/liff', function(req, res, next) {
-//     res.send("0527")
-// });
     var options = {
-        method: 'POST',
         uri: 'https://gentle-crag-28693.herokuapp.com/search',
-        body: {
-            some: 'payload'
-        },
-        json: true
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset-utf-8'
+        }
     };
-    rp(options)
-    .then(function (parsedBody) {               
-         return res;
-        })
-    }).catch(function (err) {
-        return next(err);
-    });
+    var req = https.request(options, function(res) {
+        var msg = '';
 
+        res.setEncoding('utf8');
+        res.on('data', function(chunk) {
+            msg += chunk;
+        });
+        res.on('end', function() {
+            console.log(JSON.parse(msg))
+        });
+    });
+    req.write(Data);
+    req.end();
+
+
+    // var options = {
+    //     method: 'POST',
+    //     uri: 'https://gentle-crag-28693.herokuapp.com/search',
+    //     body: {
+    //         some: 'payload'
+    //     },
+    //     json: true
+    // };
+    // rp(options)
+    // .then(function (res) {
+    //     res.send(res)
+    //     })
+    // }).catch(function (err) {
+    //     return next(err);
+    });
+/////////////////////////////////////////////////////////////////
 //     var options = {
 //         host: 'https://gentle-crag-28693.herokuapp.com',
 //         port: 3001,
