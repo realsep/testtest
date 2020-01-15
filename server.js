@@ -35,10 +35,7 @@ app.post('/liff', function(req, res, next) {
     };
     rp(options)
     .then(function (res) {
-        res.status(200)
-        .json({
-            status: 'success',
-            message: 'test'
+        
         })
     }).catch(function (err) {
         return next(err);
