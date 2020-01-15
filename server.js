@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var port = 5009;
-// var rp = require('request-promise');
+var rp = require('request-promise');
 
 var app = new express();
 
