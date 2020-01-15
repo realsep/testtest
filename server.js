@@ -26,42 +26,21 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/liff', function(req, res, next) {
+
     var options = {
-        uri: 'https://gentle-crag-28693.herokuapp.com/search',
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset-utf-8'
-        }
+        uri: 'https://gentle-crag-28693.herokuapp.com/search',
+        body: {
+            some: 'payload'
+        },
+        json: true
     };
-    var req = https.request(options, function(res) {
-        var msg = '';
-
-        res.setEncoding('utf8');
-        res.on('data', function(chunk) {
-            msg += chunk;
-        });
-        res.on('end', function() {
-            console.log(JSON.parse(msg))
-        });
-    });
-    req.write(Data);
-    req.end();
-
-
-    // var options = {
-    //     method: 'POST',
-    //     uri: 'https://gentle-crag-28693.herokuapp.com/search',
-    //     body: {
-    //         some: 'payload'
-    //     },
-    //     json: true
-    // };
-    // rp(options)
-    // .then(function (res) {
-    //     res.send(res)
-    //     })
-    // }).catch(function (err) {
-    //     return next(err);
+    rp(options)
+    .then(function (res) {
+        res.send(res)
+        })
+    }).catch(function (err) {
+        return next(err);
     });
 /////////////////////////////////////////////////////////////////
 //     var options = {
