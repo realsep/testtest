@@ -70,10 +70,10 @@ app.post('/liff', function(req, res, next) {
 //   xxx.end();
 // });
 
-// app.listen(process.env.PORT || port, function() {
-//     console.log('Node start on port : ' + port);
-// });
-
-app.listen(port, function () {
-    console.log("App is running on port" + port);
+app.listen(process.env.PORT || port, function() {
+    console.log('Node start on port : ' + port);
 });
+
+// app.listen(port, function () {
+//     console.log("App is running on port" + port);
+// });
