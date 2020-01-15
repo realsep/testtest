@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var https = require('https')
 var port = process.env.PORT || 5000;
-
+var rp = require('request-promise');
 
 const port = 5000;
 
@@ -29,10 +29,7 @@ app.post('/liff', function(req, res, next) {
 
     var options = {
         method: 'POST',
-        url: 'https://gentle-crag-28693.herokuapp.com/search',
-        body: {
-            some: 'payload'
-        },
+        uri: 'https://gentle-crag-28693.herokuapp.com/search',
         json: true
     };
     rp(options)
