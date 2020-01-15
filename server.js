@@ -36,7 +36,7 @@ app.post('/liff', function(req, res, next) {
     rp(options)
     .then(function (res) {
         
-        })
+//         })
     }).catch(function (err) {
         return next(err);
     });
