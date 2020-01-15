@@ -27,7 +27,7 @@ app.get('/', function(req, res, next) {
 app.post('/liff', function(req, res, next) {
     var options = {
         host: 'https://gentle-crag-28693.herokuapp.com/search',
-//         path: '',
+        path: '/search',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -39,8 +39,8 @@ app.post('/liff', function(req, res, next) {
         res.setEncoding('utf-8');
         var responseString = '';
 
-        res.on('data', function(data) {
-          responseString += data;
+        res.on('res', function(res) {
+          responseString += res;
         });
 
         res.on('end', function() {
