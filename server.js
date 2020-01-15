@@ -30,44 +30,30 @@ app.post('/liff', function(req, res, next) {
         host: 'https://gentle-crag-28693.herokuapp.com',
         port: 3001,
         path: '/search',
-        method: 'POST'
-      };
-
-      http.request(options, function(res) {
-        // console.log('STATUS: ' + res.statusCode);
-        // console.log('HEADERS: ' + JSON.stringify(res.headers));
-        res.setEncoding('utf8');
-        res.on('data', function (res) {
-          console.log('BODY: ' + res);
-        });
-      }).end();
-//     var options = {
-//         host: 'https://gentle-crag-28693.herokuapp.com/search',
-//         path: '/search',
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-// //             'Content-Length': DataCue.length
-//         }
-//     };
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+//             'Content-Length': DataCue.length
+        }
+    };
     
-//     var xxx = https.request(options, function(res) {
-//         res.setEncoding('utf-8');
-//         var responseString = '';
+    var xxx = https.request(options, function(res) {
+        res.setEncoding('utf-8');
+        var responseString = '';
 
-//         res.on('data', function(data) {
-//           responseString += data;
-//         });
+        res.on('data', function(data) {
+          responseString += data;
+        });
 
-//         res.on('end', function() {
-//           console.log(responseString);
-//           var responseObject = JSON.parse(responseString);
-//           success(responseObject);
-//         });
-//   });
+        res.on('end', function() {
+          console.log(responseString);
+          var responseObject = JSON.parse(responseString);
+          success(responseObject);
+        });
+  });
 
-//   xxx.write(data);
-//   xxx.end();
+  xxx.write(data);
+  xxx.end();
 });
 
 app.listen(process.env.PORT || port, function() {
