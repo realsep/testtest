@@ -24,9 +24,9 @@ app.get('/', function(req, res, next) {
     //     res.sendFile('/searchliff.html', { root: __dirname });
 });
 app.post('/liff', function(req, res, next) {
-    const options = {
-        host: 'https://gentle-crag-28693.herokuapp.com',
-        path: '/search',
+    var options = {
+        host: 'https://gentle-crag-28693.herokuapp.com/search',
+//         path: '',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -34,23 +34,23 @@ app.post('/liff', function(req, res, next) {
         }
     };
     
-    var req = https.request(options, function(res) {
-    res.setEncoding('utf-8');
-    var responseString = '';
+    var xxx = https.request(options, function(res) {
+        res.setEncoding('utf-8');
+        var responseString = '';
 
-    res.on('data', function(data) {
-      responseString += data;
-    });
+        res.on('data', function(data) {
+          responseString += data;
+        });
 
-    res.on('end', function() {
-      console.log(responseString);
-      var responseObject = JSON.parse(responseString);
-      success(responseObject);
-    });
+        res.on('end', function() {
+          console.log(responseString);
+          var responseObject = JSON.parse(responseString);
+          success(responseObject);
+        });
   });
 
-  req.write();
-  req.end();
+  xxx.write();
+  xxx.end();
 });
 
 app.listen(process.env.PORT || port, function() {
