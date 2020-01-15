@@ -27,6 +27,7 @@ app.get('/', function(req, res, next) {
 
 app.post('/liff', function(req, res, next) {
     res.send("0527")
+});
 //     var options = {
 //         method: 'POST',
 //         uri: 'https://gentle-crag-28693.herokuapp.com/search',
@@ -41,7 +42,7 @@ app.post('/liff', function(req, res, next) {
 //         })
 //     }).catch(function (err) {
 //         return next(err);
-    });
+//     });
 
 //     var options = {
 //         host: 'https://gentle-crag-28693.herokuapp.com',
