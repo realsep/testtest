@@ -23,6 +23,7 @@ app.get('/', function(req, res, next) {
 
     //     res.sendFile('/searchliff.html', { root: __dirname });
 });
+
 app.post('/liff', function(req, res, next) {
     var options = {
         host: 'https://gentle-crag-28693.herokuapp.com/search',
@@ -49,7 +50,7 @@ app.post('/liff', function(req, res, next) {
         });
   });
 
-  xxx.write();
+  xxx.write(data);
   xxx.end();
 });
 
