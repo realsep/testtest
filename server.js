@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var http = require('http');
+var https = require('https')
 
 const port = 5000;
 
@@ -24,7 +24,6 @@ app.get('/', function(req, res, next) {
     //     res.sendFile('/searchliff.html', { root: __dirname });
 });
 app.post('/liff', function(req, res, next) {
-    const https = require('https')
     const options = {
         host: 'https://gentle-crag-28693.herokuapp.com',
         path: '/search',
@@ -33,39 +32,25 @@ app.post('/liff', function(req, res, next) {
             'Content-Type': 'application/json',
 //             'Content-Length': DataCue.length
         }
-    }
+    };
     
-    http.request(options, function(res) {
-        console.log('STATUS: ' + res.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(res.headers));
-        res.setEncoding('utf8');
-        res.on('data', function (chunk) {
-        console.log('BODY: ' + chunk);
-        });
-    }).end();
-    
-    //     res.send("0527");
-    // // An object of options to indicate where to post to
-    // var post_options = {
-    //     url: 'https://gentle-crag-28693.herokuapp.com/search',
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/x-www-form-urlencoded',
-    //     }
-    // };
+    var req = https.request(options, function(res) {
+    res.setEncoding('utf-8');
+    var responseString = '';
 
-    // // Set up the request
-    // var post_req = http.request(post_options, function(res) {
-    //     res.setEncoding('utf8');
-    //     res.on('data', function(chunk) {
-    //         console.log('Response: ' + chunk);
-    //     });
-    // });
+    res.on('data', function(data) {
+      responseString += data;
+    });
 
-    // // post the data
-    // post_req.write(post_data);
-    // post_req.end();
+    res.on('end', function() {
+      console.log(responseString);
+      var responseObject = JSON.parse(responseString);
+      success(responseObject);
+    });
+  });
 
+  req.write();
+  req.end();
 });
 
 app.listen(process.env.PORT || port, function() {
