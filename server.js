@@ -20,20 +20,16 @@ app.get('/', function(req, res, next) {
     res.send("Online");
 });
 
-app.post('/test', function(req, res, next) {
-    res.send("test");
-});
-
 app.post('/liff', function(req, res, next) {
     var options = {
         method: 'POST',
-        uri: 'https://stormy-spire-09445.herokuapp.com/test',
+        uri: 'https://gentle-crag-28693.herokuapp.com/liff',
         json: true
     };
 
     rp(options)
         .then(function(parsedBody) {
-            res.send("Online")
+            res.send(parsedBody)
         })
         .catch(function(err) {
             return next(err);
