@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var port = 5000;
+var port = 5009;
 var rp = require('request-promise');
 
 var app = new express();
@@ -26,10 +26,10 @@ app.post('/liff', function(req, res, next) {
         uri: 'https://gentle-crag-28693.herokuapp.com/search',
         json: true
     };
-    
+
     rp(options)
-        .then(function(res) {
-            res.send(res)
+        .then(function(parsedBody) {
+            res.send(parsedBody)
         })
         .catch(function(err) {
             return next(err);
@@ -37,5 +37,5 @@ app.post('/liff', function(req, res, next) {
 });
 
 app.listen(process.env.PORT || port, function() {
-        console.log('Node start on port : ' + port);
+    console.log('Node start on port : ' + port);
 });
