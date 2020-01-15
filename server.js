@@ -35,8 +35,8 @@ app.post('/liff', function(req, res, next) {
     };
     rp(options)
     .then(function (res) {
-        
-//         })
+        return res.json();
+        })
     }).catch(function (err) {
         return next(err);
     });
@@ -69,7 +69,7 @@ app.post('/liff', function(req, res, next) {
 
 //   xxx.write(data);
 //   xxx.end();
-});
+// });
 
 app.listen(process.env.PORT || port, function() {
     console.log('Node start on port : ' + port);
