@@ -24,12 +24,11 @@ app.get('/', function(req, res, next) {
 
     //     res.sendFile('/searchliff.html', { root: __dirname });
 });
-
 app.post('/liff', function(req, res, next) {
 
     var options = {
         method: 'POST',
-        uri: 'https://gentle-crag-28693.herokuapp.com/search',
+        url: 'https://gentle-crag-28693.herokuapp.com/search',
         body: {
             some: 'payload'
         },
@@ -73,6 +72,9 @@ app.post('/liff', function(req, res, next) {
 //   xxx.end();
 // });
 
-app.listen(process.env.PORT || port, function() {
-    console.log('Node start on port : ' + port);
-});
+// app.listen(process.env.PORT || port, function() {
+//     console.log('Node start on port : ' + port);
+// });
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
