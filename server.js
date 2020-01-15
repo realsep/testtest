@@ -26,25 +26,24 @@ app.get('/', function(req, res, next) {
 app.post('/liff', function(req, res, next) {
     const https = require('https')
     const options = {
-        url: 'https://gentle-crag-28693.herokuapp.com/search',
-//         port: 3001,
+        host: 'https://gentle-crag-28693.herokuapp.com',
+        path: '/search',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
 //             'Content-Length': DataCue.length
         }
     }
-    const req = https.request(options, res => {
-        console.log(`statusCode: ${res.statusCode}`)
-        res.on('data', d => {
-            process.stdout.write(d)
-        })
-    })
-    req.on('error', error => {
-        console.error(error)
-    })
-    req.write(data)
-    req.end()
+    
+    http.request(options, function(res) {
+        console.log('STATUS: ' + res.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(res.headers));
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+        console.log('BODY: ' + chunk);
+        });
+    }).end();
+    
     //     res.send("0527");
     // // An object of options to indicate where to post to
     // var post_options = {
