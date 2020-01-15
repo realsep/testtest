@@ -36,12 +36,12 @@ app.post('/liff', function(req, res, next) {
         },
         json: true
     };
-//     rp(options)
-//     .then(function (parsedBody) {               
-//          return res;
-//         })
-//     }).catch(function (err) {
-//         return next(err);
+    rp(options)
+    .then(function (parsedBody) {               
+         return res;
+        })
+    }).catch(function (err) {
+        return next(err);
     });
 
 //     var options = {
