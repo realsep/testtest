@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var port = 5009;
-var rp = require('request-promise');
+// var rp = require('request-promise');
 
 var app = new express();
 
@@ -21,20 +21,20 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/liff', function(req, res, next) {
-    
-    var options = {
-        method: 'POST',
-        uri: 'https://gentle-crag-28693.herokuapp.com/search',
-        json: true
-    };
+    res.send("Online");
+//     var options = {
+//         method: 'POST',
+//         uri: 'https://gentle-crag-28693.herokuapp.com/search',
+//         json: true
+//     };
 
-    rp(options)
-        .then(function(parsedBody) {
-            res.send("Online")
-        })
-        .catch(function(err) {
-            return next(err);
-        });
+//     rp(options)
+//         .then(function(parsedBody) {
+//             res.send("Online")
+//         })
+//         .catch(function(err) {
+//             return next(err);
+//         });
 });
 
 app.listen(process.env.PORT || port, function() {
