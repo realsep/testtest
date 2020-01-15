@@ -25,35 +25,53 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/liff', function(req, res, next) {
-
     var options = {
-        host: 'https://gentle-crag-28693.herokuapp.com',
-        port: 3001,
-        path: '/search',
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-//             'Content-Length': DataCue.length
-        }
+        uri: 'https://gentle-crag-28693.herokuapp.com/search',
+        body: {
+            some: 'payload'
+        },
+        json: true
     };
+    rp(options)
+    .then(function (res) {
+        res.status(200)
+        .json({
+            status: 'success',
+            message: 'test'
+        })
+    }).catch(function (err) {
+        return next(err);
+    });
+
+//     var options = {
+//         host: 'https://gentle-crag-28693.herokuapp.com',
+//         port: 3001,
+//         path: '/search',
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+// //             'Content-Length': DataCue.length
+//         }
+//     };
     
-    var xxx = https.request(options, function(res) {
-        res.setEncoding('utf-8');
-        var responseString = '';
+//     var xxx = https.request(options, function(res) {
+//         res.setEncoding('utf-8');
+//         var responseString = '';
 
-        res.on('data', function(data) {
-          responseString += data;
-        });
+//         res.on('data', function(data) {
+//           responseString += data;
+//         });
 
-        res.on('end', function() {
-          console.log(responseString);
-          var responseObject = JSON.parse(responseString);
-          success(responseObject);
-        });
-  });
+//         res.on('end', function() {
+//           console.log(responseString);
+//           var responseObject = JSON.parse(responseString);
+//           success(responseObject);
+//         });
+//   });
 
-  xxx.write(data);
-  xxx.end();
+//   xxx.write(data);
+//   xxx.end();
 });
 
 app.listen(process.env.PORT || port, function() {
