@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var https = require('https')
+var port = process.env.PORT || 5000;
 
 
 const port = 5000;
@@ -75,6 +76,7 @@ app.post('/liff', function(req, res, next) {
 // app.listen(process.env.PORT || port, function() {
 //     console.log('Node start on port : ' + port);
 // });
-app.listen(process.env.PORT || 5000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+
+app.listen(port, function () {
+    console.log("App is running on port" + port);
+});
