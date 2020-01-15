@@ -24,27 +24,27 @@ app.get('/', function(req, res, next) {
     //     res.sendFile('/searchliff.html', { root: __dirname });
 });
 app.post('/liff', function(req, res, next) {
-    res.send("0527");
-    // An object of options to indicate where to post to
-//     var post_options = {
-//         url: 'https://gentle-crag-28693.herokuapp.com/search',
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/x-www-form-urlencoded',
-//         }
-//     };
+//     res.send("0527");
+    An object of options to indicate where to post to
+    var post_options = {
+        url: 'https://gentle-crag-28693.herokuapp.com/search',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    };
 
-//     // Set up the request
-//     var post_req = http.request(post_options, function(res) {
-//         res.setEncoding('utf8');
-//         res.on('data', function(chunk) {
-//             console.log('Response: ' + chunk);
-//         });
-//     });
+    // Set up the request
+    var post_req = http.request(post_options, function(res) {
+        res.setEncoding('utf8');
+        res.on('data', function(res) {
+            console.log('Response: ' + res);
+        });
+    });
 
-//     // post the data
-//     post_req.write(post_data);
-//     post_req.end();
+    // post the data
+    post_req.write(post_data);
+    post_req.end();
 
 });
 
