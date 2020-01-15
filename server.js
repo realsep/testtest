@@ -32,7 +32,7 @@ app.post('/liff', function(req, res, next) {
             res.send(parsedBody)
         })
         .catch(function(err) {
-            return next(err);
+            res.send(next(err))
         });
 });
 
