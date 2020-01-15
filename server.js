@@ -34,8 +34,8 @@ app.post('/liff', function(req, res, next) {
         json: true
     };
     rp(options)
-    .then(function (res) {
-        return res
+    .then(function (res) {               
+         return res;
         })
     }).catch(function (err) {
         return next(err);
