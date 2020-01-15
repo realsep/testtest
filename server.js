@@ -30,7 +30,7 @@ app.post('/liff', function(req, res, next) {
 
     rp(options)
         .then(function(parsedBody) {
-            res.send(parsedBody)
+            res.send("Online")
         })
         .catch(function(err) {
             return next(err);
